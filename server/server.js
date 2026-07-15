@@ -386,9 +386,12 @@ seedDatabase();
 // Mount Routes
 app.use('/api', routes);
 
-// Base route
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the FashionHub Multiple Image Boutique API!' });
+// Serve static client assets in production
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// SPA Wildcard fallback to serve frontend App
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.listen(PORT, () => {
