@@ -2,9 +2,15 @@
   "name": "edutrade-root",
   "version": "1.0.0",
   "description": "Student Marketplace - EduTrade",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "install-all": "npm install && npm install --prefix server && npm install --prefix client",
-    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
+    "build": "npm run build --prefix client",
+    "postinstall": "npm run build",
     "start": "node server/server.js",
     "server": "node server/server.js",
     "client": "npm run dev --prefix client",
