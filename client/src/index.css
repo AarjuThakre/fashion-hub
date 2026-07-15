@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Minimalist Luxury White-Theme Design Tokens */
+  --primary: #111111; /* Onyx Black */
+  --primary-light: #333333;
+  --primary-dark: #000000;
+  --primary-glow: rgba(17, 17, 17, 0.05);
+  
+  --secondary: #767676; /* Sophisticated Neutral Slate Grey */
+  --secondary-light: #a6a6a6;
+  --accent-gold: #c5a880; /* Elegant Warm Champagne Gold */
+  
+  --bg-light: #fbfbfa; /* Warm Off-white / Soft Alabaster */
+  --bg-light-card: #ffffff; /* Crisp white background */
+  --bg-light-border: #e8e8e7; /* Thin elegant borders */
+  --text-light-main: #111111; /* Clean high-contrast charcoal */
+  --text-light-muted: #666666;
+  
+  --bg-dark: #0c0d10; /* Sleek luxury dark mode */
+  --bg-dark-card: #14151b;
+  --bg-dark-border: #23252f;
+  --text-dark-main: #f5f5f7;
+  --text-dark-muted: #8e8e93;
+  
+  /* Active Theme defaults (Light/White default) */
+  --background: var(--bg-light);
+  --card-bg: var(--bg-light-card);
+  --card-border: var(--bg-light-border);
+  --text-main: var(--text-light-main);
+  --text-muted: var(--text-light-muted);
+  
+  /* Parameters */
+  --radius-sm: 2px; /* Ultra sharp minimalist corners */
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] {
+  --background: var(--bg-dark);
+  --card-bg: var(--bg-dark-card);
+  --card-border: var(--bg-dark-border);
+  --text-main: var(--text-dark-main);
+  --text-muted: var(--text-dark-muted);
+  
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.7);
+  --primary: #ffffff;
+  --primary-light: #e5e5e7;
+  --primary-dark: #8e8e93;
+  --primary-glow: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+  overflow-x: hidden;
+  min-height: 100vh;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400; /* Minimalist lighter weight headers */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.serif-font {
+  font-family: 'Playfair Display', serif;
+  text-transform: none;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d2;
+  border-radius: var(--radius-full);
+}
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: #33343d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 36px; /* Elegant wide gap */
+  margin-top: 24px;
+}
+
+/* High-end Minimalist Flat Grid Card */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+/* Boutique Buttons (Pure high contrast black-on-white or double borders) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--background);
+  border: 1px solid var(--primary);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-main);
+  background: var(--primary-glow);
+}
+
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  padding: 0;
+}
+
+/* Inputs & Form Fields */
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form-input {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  width: 100%;
+}
+
+[data-theme='dark'] .form-input {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+}
+
+.form-select {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #f1f1f1;
+  color: #333333;
+}
+
+[data-theme='dark'] .badge {
+  background: #23252f;
+  color: #d1d1d6;
+}
+
+.badge-tops { background: #fafafa; border: 1px solid #ddd; }
+.badge-bottoms { background: #fafafa; border: 1px solid #ddd; }
+.badge-outerwear { background: #fafafa; border: 1px solid #ddd; }
+.badge-accessories { background: #fafafa; border: 1px solid #ddd; }
+
+.badge-seller {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.badge-status-pending { background: #fffdf5; color: #b7791f; border: 1px solid #fef3c7; }
+.badge-status-shipped { background: #f0f9ff; color: #0284c7; border: 1px solid #e0f2fe; }
+.badge-status-completed { background: #f0fdf4; color: #16a34a; border: 1px solid #dcfce7; }
+.badge-status-cancelled { background: #fafafa; color: #6b7280; border: 1px solid #e5e7eb; }
+
+/* Selection elements */
+.color-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #e1e1e1;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.size-box {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+}
+
+.size-box:hover {
+  border-color: var(--primary);
+}
+
+.size-box.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--background);
+}
+
+/* Animations */
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-slide {
+  animation: fadeInSlide 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.card-image {
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.glass-card:hover .card-image {
+  transform: scale(1.02);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

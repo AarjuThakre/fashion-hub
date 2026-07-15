@@ -1,0 +1,10 @@
+node_modules/
+client/node_modules/
+server/data/
+dist/
+build/
+*.log
+.vscode/
+.env
+.gemini/
+.agents/
